@@ -5,10 +5,6 @@
       "destination": "/assets/:path*"
     },
     {
-      "source": "/:path*.(png|jpg|jpeg|gif|svg|ico|webp)",
-      "destination": "/:path*.:ext"
-    },
-    {
       "source": "/:path*",
       "destination": "/index.html"
     }
