@@ -2,13 +2,6 @@
   "rewrites": [
     {
       "source": "/assets/:path*",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": "^(?!image/png).*$"
-        }
-      ],
       "destination": "/assets/:path*"
     },
     {

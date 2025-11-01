@@ -1,5 +1,5 @@
 // Automatically import all .png images from alumni folder
-const images = import.meta.glob("../assets/*.png", { eager: true });
+const images = import.meta.glob("../assets/*.jpg", { eager: true });
 
 // Create a filename-to-URL map
 const imageMap: Record<string, string> = {};
@@ -19,12 +19,12 @@ const randomNames = [
 // Generate alumni data (1–15 for 2024, 16–27 for 2025)
 const alumni2024 = Array.from({ length: 15 }, (_, i) => ({
   name: randomNames[i],
-  img: imageMap[`q${i + 1}.png`],
+  img: imageMap[`q${i + 1}.jpg`],
 }));
 
 const alumni2025 = Array.from({ length: 12 }, (_, i) => ({
   name: randomNames[i + 15],
-  img: imageMap[`q${i + 16}.png`],
+  img: imageMap[`q${i + 16}.jpg`],
 }));
 
 function AlumniSection({
