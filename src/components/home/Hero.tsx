@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import BackGround from '../../assets/track3.png';
+import BackGround from '../../assets/Mitsbg.jpg';
 import BackGround2 from '../../assets/track4.png';
 
 const buttonVariants = {
