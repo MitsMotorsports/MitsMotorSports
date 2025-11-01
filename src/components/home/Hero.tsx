@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import BackGround from '../../assets/track3.jpg';
-import BackGround2 from '../../assets/track4.png';
+import BackGround2 from '../../assets/track4.jpg';
 
 const buttonVariants = {
   hidden: {
