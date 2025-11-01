@@ -22,7 +22,7 @@ import tony from '../components/ebaja/image/Tony.jpg';
 import madhavs from '../components/ebaja/image/Madhavs.jpg';
 import neha from '../components/ebaja/image/Neha.jpg';
 import nehajose from '../components/ebaja/image/NehaJose.jpg';
-import sonel from '../components/ebaja/image/Sonel.png';
+import sonel from '../components/ebaja/image/Sonel.jpg';
 import gowri from '../components/ebaja/image/Gowri.jpg';
 import aswinmanoj from '../components/ebaja/image/Aswin.webp';
 import madhavps from '../components/ebaja/image/MadhavPS.jpeg';

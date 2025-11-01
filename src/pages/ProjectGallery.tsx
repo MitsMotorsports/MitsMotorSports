@@ -11,7 +11,7 @@ import img6 from '../assets/img6.jpg';
 import img7 from '../assets/img7.jpg';
 import img8 from '../assets/img8.jpg';
 import img9 from '../assets/img9.jpg';
-import fkdcImg1 from '../assets/fkdc pic1.png';
+import fkdcImg1 from '../assets/fkdc pic1.jpg';
 import fkdcImg2 from '../assets/fkdc pic2.jpg';
 import fkdcImg3 from '../assets/fkdc pic3.jpg';
 import fkdcImg4 from '../assets/fkdc pic4.jpg';
