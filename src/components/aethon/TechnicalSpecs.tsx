@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import backgroundImage from './background.png';
+import backgroundImage from './background.jpg';
 
 import {
   Settings,

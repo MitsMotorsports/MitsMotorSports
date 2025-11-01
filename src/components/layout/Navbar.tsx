@@ -62,7 +62,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <img src="/faviconLogo (1).png" alt="Club Logo" className="h-10 w-auto mr-2" />
+            <img src="/faviconLogo (1).jpg" alt="Club Logo" className="h-10 w-auto mr-2" />
             <span
               className="font-bold text-2xl"
               style={{

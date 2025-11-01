@@ -1,9 +1,9 @@
 import React from 'react';
-import Logo from '../assets/Muthoot_Group.png'; // adjust path
+import Logo from '../assets/Muthoot_Group.jpg'; // adjust path
 import { motion } from 'framer-motion';
 import Z1 from '../assets/z1.jpg';
 import Z2 from '../assets/z2.jpg';
-import Z3 from '../assets/z3.png';
+import Z3 from '../assets/z3.jpg';
 
 
 const Sponsors: React.FC = () => {

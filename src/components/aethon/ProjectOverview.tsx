@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import { Clock, Award, Users, BarChart } from 'lucide-react';
-import gokart from './aethon.png';
+import gokart from './aethon.jpg';
 
 const ProjectOverview = () => {
   return (

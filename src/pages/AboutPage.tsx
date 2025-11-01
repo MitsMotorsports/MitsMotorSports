@@ -1,6 +1,6 @@
 import { Award, Users, Target, Wrench } from 'lucide-react';
 import { motion } from 'framer-motion';
-import ClubLogo from '../assets/faviconLogo (1).png';
+import ClubLogo from '../assets/faviconLogo (1).jpg';
 
 const About = () => {
   const features = [

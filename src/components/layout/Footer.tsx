@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Logo and Web Designers */}
           <div className="flex flex-col items-center justify-center h-full border-r border-white md:border-r-0 space-y-6">
             <img
-              src="/faviconLogo (1).png"
+              src="/faviconLogo (1).jpg"
               alt="MITS Motorsports Logo"
               className="h-32 sm:h-36 md:h-40 lg:h-44 w-auto"
             />

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Import your background image
-import backgroundImage from "../assets/pg1.png"; 
+import backgroundImage from "../assets/pg1.jpg"; 
 
 // Original Carousel 1 Images
 import a1 from "../components/ebaja/image/a1.jpg";
