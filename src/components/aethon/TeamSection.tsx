@@ -29,6 +29,8 @@ import AsrayaImg from './images/Asraya.jpg';
 import LeahImg from './images/Leah.jpg';
 import KhaizImg from './images/Khais.jpg';
 import aethonback from './images/aethonback.jpg';
+import nikhilImg from './images/Nikhil.jpg';
+import venuImg from './images/Venugopalan.jpg';
 
 // Team member data organized by departments
 const teamData = {
@@ -76,6 +78,10 @@ const teamData = {
   ],
   driver: [
     { name: 'Khaiz',  image: KhaizImg, email: 'khaiz@example.com' },
+  ],
+  facultyLead: [
+    { name: 'Dr.Nikhil M Thoppil', role: 'Faculty Lead', image: nikhilImg, email: 'nikhil@example.com' },
+    { name: 'Mr.Venugopalan Kurupath', role: 'Faculty Lead', image: venuImg, email: 'venu@example.com' },
   ],
 };
 
@@ -191,6 +197,12 @@ const TeamSection = () => {
               title="Driver" 
               members={teamData.driver} 
               gridCols="grid-cols-1"
+            />
+            
+            <DepartmentSection 
+              title="Faculty Lead" 
+              members={teamData.facultyLead} 
+              gridCols="grid-cols-1 sm:grid-cols-2"
             />
           </motion.div>
         )}

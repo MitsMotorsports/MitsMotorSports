@@ -31,14 +31,14 @@ import erin from '../components/ebaja/image/Erin.jpg';
 import vivek from '../components/ebaja/image/Vivek.jpg';
 import dhanya from '../components/ebaja/image/Dhanya.jpeg';
 import allen from '../components/ebaja/image/AllenPeter.jpg';
+import nikhil from '../components/ebaja/image/Nikhil.jpg';
+import jim from '../components/ebaja/image/JIM.jpg';
 
 
 const App: React.FC = () => {
   const [showAllMembers, setShowAllMembers] = useState(false);
 
-  // Leadership Team (first 11 members)
   const leadershipTeam = [
-    // First Row
     {
       name: 'Gabrin',
       role: 'Captain',
@@ -67,7 +67,6 @@ const App: React.FC = () => {
       linkedin: 'https://linkedin.com',
       email: ' fathimabijut@gmail.com ',
     },
-    // Second Row
     {
       name: 'Viswas',
       role: 'Chassis & Fabrication Head',
@@ -96,7 +95,6 @@ const App: React.FC = () => {
       linkedin: 'https://linkedin.com',
       email: 'abnerbiju2005@gmail.com',
     },
-    // Third Row
     {
       name: 'Dilshad',
       role: 'HV (High Voltage) Head',
@@ -120,7 +118,19 @@ const App: React.FC = () => {
     },
   ];
 
-  // Department Teams
+  const facultyLead = [
+    {
+      name:'Dr.Nikhil M Thoppil',
+      role:'Faculty Lead',
+      image:nikhil,
+    },
+    {
+      name:'Dr.Jim George',
+      role:'Faculty Lead',
+      image:jim,
+    },
+  ];
+
   const departmentTeams = {
     chassisFabrication: [
       {
@@ -295,7 +305,6 @@ const App: React.FC = () => {
 
   const visibleLeadership = showAllMembers ? leadershipTeam : leadershipTeam.slice(0, 4);
 
-  // Member Card Component - Updated to use new design
   const MemberCard: React.FC<{ member: any; index: number; isLeadership?: boolean }> = ({ member, index, isLeadership = false }) => (
     <div className="alumni-card" title={member.name}>
       <img
@@ -308,7 +317,6 @@ const App: React.FC = () => {
     </div>
   );
 
-  // Department Section Component
   const DepartmentSection: React.FC<{ 
   title: string; 
   members: any[]; 
@@ -355,7 +363,7 @@ const App: React.FC = () => {
     },
     { 
       label: 'Top Speed', 
-      value: '70 kmph', 
+      value: '55 kmph', 
       icon: <Gauge className="h-5 w-5" />,
       description: 'Maximum achievable speed',
       color: 'red'
@@ -371,38 +379,31 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-black text-white min-h-screen overflow-x-hidden relative">
-      {/* GLOBAL Geometric Background Pattern - Visible Throughout Entire Website with darker red */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        {/* Large geometric shapes with darker red color */}
         <div className="absolute top-10 left-10 w-80 h-80 border-2 border-[#5c1515]/50 rotate-45 rounded-3xl"></div>
         <div className="absolute top-20 right-20 w-96 h-96 border-2 border-[#5c1515]/45 rotate-12 rounded-2xl"></div>
         <div className="absolute bottom-20 left-1/4 w-72 h-72 border-2 border-[#5c1515]/55 -rotate-12 rounded-xl"></div>
         <div className="absolute bottom-40 right-1/3 w-88 h-88 border-2 border-[#5c1515]/50 rotate-45 rounded-2xl"></div>
         
-        {/* Medium geometric shapes */}
         <div className="absolute top-1/3 left-1/2 w-64 h-64 border-2 border-[#5c1515]/45 rotate-30 rounded-lg"></div>
         <div className="absolute top-60 right-1/4 w-56 h-56 border-2 border-[#5c1515]/50 -rotate-45 rounded-xl"></div>
         <div className="absolute bottom-1/3 left-20 w-68 h-68 border-2 border-[#5c1515]/45 rotate-12 rounded-2xl"></div>
         <div className="absolute top-40 left-1/3 w-52 h-52 border-2 border-[#5c1515]/50 -rotate-30 rounded-lg"></div>
         
-        {/* Small geometric accents */}
         <div className="absolute top-80 left-1/3 w-32 h-32 border-2 border-[#5c1515]/60 rotate-45 rounded-lg"></div>
         <div className="absolute top-1/4 right-40 w-40 h-40 border-2 border-[#5c1515]/55 -rotate-30 rounded-xl"></div>
         <div className="absolute bottom-60 right-10 w-36 h-36 border-2 border-[#5c1515]/50 rotate-60 rounded-lg"></div>
         <div className="absolute top-96 left-20 w-28 h-28 border-2 border-[#5c1515]/55 rotate-15 rounded-md"></div>
         
-        {/* Additional scattered shapes */}
         <div className="absolute top-32 right-1/2 w-44 h-44 border-2 border-[#5c1515]/45 rotate-75 rounded-xl"></div>
         <div className="absolute bottom-80 left-1/2 w-48 h-48 border-2 border-[#5c1515]/50 -rotate-20 rounded-lg"></div>
         <div className="absolute top-1/2 right-20 w-60 h-60 border-2 border-[#5c1515]/45 rotate-50 rounded-2xl"></div>
         
-        {/* Diagonal lines with darker red */}
         <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-transparent via-[#5c1515]/35 to-transparent rotate-12"></div>
         <div className="absolute top-0 right-1/3 w-1 h-full bg-gradient-to-b from-transparent via-[#5c1515]/40 to-transparent -rotate-12"></div>
         <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-transparent via-[#5c1515]/30 to-transparent rotate-6"></div>
         <div className="absolute top-0 right-1/2 w-1 h-full bg-gradient-to-b from-transparent via-[#5c1515]/35 to-transparent -rotate-8"></div>
         
-        {/* Floating dots with darker red */}
         <div className="absolute top-32 left-1/2 w-4 h-4 bg-[#5c1515]/70 rounded-full"></div>
         <div className="absolute top-96 right-1/4 w-5 h-5 bg-[#5c1515]/60 rounded-full"></div>
         <div className="absolute bottom-32 left-1/3 w-3 h-3 bg-[#5c1515]/65 rounded-full"></div>
@@ -410,35 +411,29 @@ const App: React.FC = () => {
         <div className="absolute top-64 left-20 w-3 h-3 bg-[#5c1515]/60 rounded-full"></div>
         <div className="absolute bottom-96 right-40 w-5 h-5 bg-[#5c1515]/65 rounded-full"></div>
         
-        {/* Additional geometric elements for racing aesthetic */}
         <div className="absolute top-20 left-1/2 w-24 h-2 bg-[#5c1515]/50 rotate-45"></div>
         <div className="absolute bottom-40 right-1/4 w-32 h-2 bg-[#5c1515]/45 -rotate-30"></div>
         <div className="absolute top-1/2 left-10 w-28 h-2 bg-[#5c1515]/50 rotate-60"></div>
         <div className="absolute bottom-20 left-1/2 w-20 h-2 bg-[#5c1515]/45 -rotate-45"></div>
         
-        {/* Corner accent shapes */}
         <div className="absolute top-5 left-5 w-16 h-16 border-2 border-[#5c1515]/60 rotate-45"></div>
         <div className="absolute top-5 right-5 w-20 h-20 border-2 border-[#5c1515]/55 -rotate-30"></div>
         <div className="absolute bottom-5 left-5 w-18 h-18 border-2 border-[#5c1515]/60 rotate-60"></div>
         <div className="absolute bottom-5 right-5 w-22 h-22 border-2 border-[#5c1515]/55 -rotate-15"></div>
         
-        {/* Extra geometric elements for more coverage */}
         <div className="absolute top-1/4 left-10 w-36 h-36 border-2 border-[#5c1515]/40 rotate-25 rounded-lg"></div>
         <div className="absolute bottom-1/4 right-10 w-42 h-42 border-2 border-[#5c1515]/45 -rotate-35 rounded-xl"></div>
         <div className="absolute top-3/4 left-1/3 w-38 h-38 border-2 border-[#5c1515]/40 rotate-55 rounded-md"></div>
         <div className="absolute bottom-1/2 right-1/3 w-34 h-34 border-2 border-[#5c1515]/45 -rotate-25 rounded-lg"></div>
         
-        {/* More diagonal accents */}
         <div className="absolute top-1/3 left-0 w-1 h-2/3 bg-gradient-to-b from-transparent via-[#5c1515]/25 to-transparent rotate-15"></div>
         <div className="absolute bottom-1/3 right-0 w-1 h-2/3 bg-gradient-to-t from-transparent via-[#5c1515]/30 to-transparent -rotate-15"></div>
         
-        {/* Additional floating elements */}
         <div className="absolute top-1/2 left-1/4 w-6 h-6 bg-[#5c1515]/50 rounded-full"></div>
         <div className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-[#5c1515]/55 rounded-full"></div>
         <div className="absolute top-2/3 left-3/4 w-5 h-5 bg-[#5c1515]/50 rounded-full"></div>
       </div>
 
-      {/* Hero Section with Background Image - Enhanced with larger heading */}
       <div className="relative w-full h-screen">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -447,7 +442,6 @@ const App: React.FC = () => {
           }}
         ></div>
         
-        {/* Floating particles animation */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-20 w-3 h-3 bg-[#5c1515] rounded-full animate-ping opacity-75"></div>
           <div className="absolute top-40 right-32 w-2 h-2 bg-[#5c1515] rounded-full animate-pulse"></div>
@@ -506,33 +500,25 @@ const App: React.FC = () => {
 </div>
 
 
-        {/* Smooth transition gradient to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/90 via-black/60 to-transparent pointer-events-none"></div>
       </div>
 
-      {/* Project Overview Section - Enhanced with Better Background Visibility */}
       <section className="py-24 relative overflow-hidden">
-        {/* Enhanced Background with patterns visibility */}
         <div className="absolute inset-0 z-0">
-          {/* Primary background with subtle transparency */}
           <div className="absolute inset-0 bg-black/85"></div>
           
-          {/* Additional geometric elements specific to this section for enhanced visibility */}
           <div className="absolute top-20 left-20 w-48 h-48 border border-[#5c1515]/30 rotate-45 rounded-2xl"></div>
           <div className="absolute bottom-20 right-20 w-56 h-56 border border-[#5c1515]/25 -rotate-30 rounded-3xl"></div>
           <div className="absolute top-1/2 left-1/4 w-32 h-32 border border-[#5c1515]/35 rotate-60 rounded-xl"></div>
           <div className="absolute bottom-1/3 right-1/3 w-40 h-40 border border-[#5c1515]/30 -rotate-15 rounded-2xl"></div>
           
-          {/* Floating accent dots */}
           <div className="absolute top-32 right-1/4 w-3 h-3 bg-[#5c1515]/60 rounded-full animate-pulse"></div>
           <div className="absolute bottom-40 left-1/3 w-4 h-4 bg-[#5c1515]/70 rounded-full animate-ping"></div>
           <div className="absolute top-2/3 right-20 w-2 h-2 bg-[#5c1515]/80 rounded-full animate-bounce"></div>
         </div>
 
-        {/* Content */}
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image Section with Coming Soon */}
             <div className="relative">
               <div className="absolute inset-0 border-2 border-[#5c1515]/30 rounded-lg transform translate-x-4 translate-y-4"></div>
               <div className="relative z-10 bg-black/90 backdrop-blur-sm rounded-lg shadow-2xl h-96 flex items-center justify-center border border-gray-800/50">
@@ -546,7 +532,6 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Content Section */}
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white tracking-tight">
@@ -560,7 +545,8 @@ const App: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="group flex items-start p-4 rounded-xl bg-black/40 backdrop-blur-sm border border-gray-800/50 hover:border-[#5c1515]/30 transition-all duration-300">
                   <div className="mr-4 mt-1 p-2 bg-[#5c1515]/20 rounded-md group-hover:bg-[#5c1515]/30 transition-colors duration-300">
-                    <BarChart className="h-5 w-5 text-[#5c1515]" />
+                    <BarChart className="h-5 w-5 text-[#5c1515]"
+                    />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1 text-white">Top Speed</h4>
@@ -603,7 +589,6 @@ const App: React.FC = () => {
         </div>
       </section>
       
-      {/* Team Members Section */}
       <section id="team" className="py-20 relative z-10">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
@@ -616,7 +601,6 @@ const App: React.FC = () => {
             </p>
           </div>
 
-          {/* Leadership Team */}
           <div className="mb-16">
             <div className="text-center mb-12">
               <h3 className="text-2xl md:text-3xl font-black mb-4 text-white tracking-tight">
@@ -625,72 +609,74 @@ const App: React.FC = () => {
               <div className="w-16 h-1 bg-gradient-to-r from-[#5c1515] to-[#7f1d1d] mx-auto rounded-full"></div>
             </div>
 
-            {/* Grid logic with 3-member row centered and spaced */}
-            {(() => {
-              const rows = [];
-              const total = visibleLeadership.length;
-
-              for (let i = 0; i < total; i += 4) {
-                const chunk = visibleLeadership.slice(i, i + 4);
-                const isLastRowWithThree = i + 4 >= total && chunk.length === 3;
-
-                rows.push(
-                  <div
-                    key={i}
-                    className={
-                      isLastRowWithThree
-                        ? "flex justify-center space-x-8 sm:space-x-16 md:space-x-32 lg:space-x-44 gap-y-10 mb-16 flex-wrap"
-                        : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 justify-items-center"
-                    }
-                  >
-                    {chunk.map((member, index) => (
-                      <MemberCard key={index} member={member} index={i + index} />
-                    ))}
-                  </div>
-                );
-              }
-
-              return rows;
-            })()}
-
-            {/* Department Teams - Only show when expanded */}
-            {showAllMembers && (
-              <div className="space-y-20">
-                <DepartmentSection 
-                  title="Chassis & Fabrication" 
-                  members={departmentTeams.chassisFabrication}
-                />
-                
-                <DepartmentSection 
-                  title="Vehicle Dynamics & Suspension" 
-                  members={departmentTeams.vehicleDynamics}
-                />
-                
-                <DepartmentSection 
-                  title="Design & Manufacturing" 
-                  members={departmentTeams.designManufacturing}
-                />
-                
-                <DepartmentSection 
-                  title="Brake & Drive Train" 
-                  members={departmentTeams.brakeDriveTrain}
-                />
-                
-                <DepartmentSection 
-                  title="HV (High Voltage)" 
-                  members={departmentTeams.hv}
-                />
-                
-                <DepartmentSection 
-                  title="LV (Low Voltage)" 
-                  members={departmentTeams.lv}
-                />
-                
-                <DepartmentSection 
-                  title="Accumulators & BMS (Battery Management System)" 
-                  members={departmentTeams.accumulatorsBms}
-                />
+            {!showAllMembers ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 justify-items-center">
+                {visibleLeadership.map((member, index) => (
+                  <MemberCard key={index} member={member} index={index} />
+                ))}
               </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 justify-items-center">
+                  {leadershipTeam.slice(0, 4).map((member, index) => (
+                    <MemberCard key={index} member={member} index={index} />
+                  ))}
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 justify-items-center">
+                  {leadershipTeam.slice(4, 8).map((member, index) => (
+                    <MemberCard key={index + 4} member={member} index={index + 4} />
+                  ))}
+                </div>
+
+                <div className="flex justify-center space-x-8 sm:space-x-16 md:space-x-32 lg:space-x-44 gap-y-10 mb-16 flex-wrap">
+                  {leadershipTeam.slice(8, 11).map((member, index) => (
+                    <MemberCard key={index + 8} member={member} index={index + 8} />
+                  ))}
+                </div>
+
+                <div className="space-y-20">
+                  <DepartmentSection 
+                    title="Chassis & Fabrication" 
+                    members={departmentTeams.chassisFabrication}
+                  />
+                  
+                  <DepartmentSection 
+                    title="Vehicle Dynamics & Suspension" 
+                    members={departmentTeams.vehicleDynamics}
+                  />
+                  
+                  <DepartmentSection 
+                    title="Design & Manufacturing" 
+                    members={departmentTeams.designManufacturing}
+                  />
+                  
+                  <DepartmentSection 
+                    title="Brake & Drive Train" 
+                    members={departmentTeams.brakeDriveTrain}
+                  />
+                  
+                  <DepartmentSection 
+                    title="HV (High Voltage)" 
+                    members={departmentTeams.hv}
+                  />
+                  
+                  <DepartmentSection 
+                    title="LV (Low Voltage)" 
+                    members={departmentTeams.lv}
+                  />
+                  
+                  <DepartmentSection 
+                    title="Accumulators & BMS (Battery Management System)" 
+                    members={departmentTeams.accumulatorsBms}
+                  />
+
+                  <DepartmentSection 
+                    title="Faculty Lead" 
+                    members={facultyLead}
+                  />
+                </div>
+              </>
             )}
 
             <div className="flex justify-center mt-12">
@@ -715,7 +701,6 @@ const App: React.FC = () => {
         </div>
       </section>
       
-      {/* Technical Specifications */}
       <section id="technical-specs" className="py-20 relative z-10">
        <div className="container mx-auto px-6 relative z-10 text-white">
           <div className="text-center mb-16">
@@ -749,7 +734,6 @@ const App: React.FC = () => {
                   key={index}
                   className={`group bg-black/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-800 ${colors.border} transition-all duration-700 hover:transform hover:scale-105 text-center hover:shadow-2xl ${colors.shadow} relative overflow-hidden`}
                 >
-                  {/* Glow effect on hover */}
                   <div className={`absolute inset-0 ${colors.glow} transition-all duration-700 opacity-0 group-hover:opacity-100 rounded-2xl`}></div>
                   
                   <div className="relative z-10">
@@ -769,7 +753,6 @@ const App: React.FC = () => {
                     </p>
                   </div>
                   
-                  {/* Animated border effect */}
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${colors.valueGradient} opacity-20 blur-sm`}></div>
                   </div>
