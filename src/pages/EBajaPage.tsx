@@ -13,7 +13,7 @@ import dilshad from '../components/ebaja/image/Dilshad.jpg';
 import remiel from '../assets/Remiel.jpg';
 import aswinlal from '../components/ebaja/image/Aswin.jpeg';
 import madhav from '../components/ebaja/image/Madhav.jpg';
-import adarsh from '../components/ebaja/image/Adarsh.jpg';
+import asim from '../components/ebaja/image/asim.jpg';
 import rohit from '../components/ebaja/image/Rohit.jpg';
 import saurabh from '../components/ebaja/image/Saurabh.jpg';
 import vyshnav from '../components/ebaja/image/Vyshnav.jpg';
@@ -34,6 +34,18 @@ import allen from '../components/ebaja/image/AllenPeter.jpg';
 import nikhil from '../components/ebaja/image/Nikhil.jpg';
 import jim from '../components/ebaja/image/JIM.jpg';
 
+interface Member {
+  name: string;
+  role?: string;
+  image: string;
+  linkedin?: string;
+  email?: string;
+}
+
+interface DepartmentProps {
+  title: string;
+  members: Member[];
+}
 
 const App: React.FC = () => {
   const [showAllMembers, setShowAllMembers] = useState(false);
@@ -142,9 +154,9 @@ const App: React.FC = () => {
       },
   
       {
-        name: 'Adarsh',
+        name: 'Asim',
         role: 'Junior Engineer',
-        image: adarsh,
+        image: asim,
         linkedin: 'https://linkedin.com',
         email: 'adzrshas@gmail.com',
       },
@@ -305,46 +317,50 @@ const App: React.FC = () => {
 
   const visibleLeadership = showAllMembers ? leadershipTeam : leadershipTeam.slice(0, 4);
 
-  const MemberCard: React.FC<{ member: any; index: number; isLeadership?: boolean }> = ({ member, index, isLeadership = false }) => (
-    <div className="alumni-card" title={member.name}>
+  const MemberCard: React.FC<{ member: Member; index: number; isLeadership?: boolean }> = ({
+    member,
+    index,
+    isLeadership = false,
+  }) => (
+    <div className="alumni-card text-center" title={member.name}>
       <img
         src={member.image}
         alt={member.name}
-        className="alumni-image"
+        className="alumni-image w-40 h-40 object-cover rounded-full mb-3 border-4 border-[#7f1d1d]"
         loading="lazy"
       />
-      <span className="alumni-name">{member.name}</span>
+      <span className="alumni-name block text-white font-semibold">{member.name}</span>
+
+      {isLeadership && member.role && (
+        <span className="alumni-role block text-gray-300 text-sm mt-1">{member.role}</span>
+      )}
     </div>
   );
 
-  const DepartmentSection: React.FC<{ 
-  title: string; 
-  members: any[]; 
-}> = ({ title, members }) => (
-  <div className="mb-16">
-    <div className="text-center mb-12">
-      <h3 className="text-2xl md:text-3xl font-black mb-4 text-white tracking-tight">
-        {title}
-      </h3>
-      <div className="w-16 h-1 bg-gradient-to-r from-[#5c1515] to-[#7f1d1d] mx-auto rounded-full"></div>
-    </div>
-    
-    <div
-      className={`max-w-6xl mx-auto ${
-        members.length === 2
-          ? 'flex justify-center gap-x-44 flex-wrap'
-          : members.length === 3
-          ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-8 place-items-center'
-          : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-14 gap-y-10 place-items-center'
-      }`}
-    >
-      {members.map((member, index) => (
-        <MemberCard key={index} member={member} index={index} />
-      ))}
-    </div>
-  </div>
-);
+  const DepartmentSection: React.FC<DepartmentProps> = ({ title, members }) => (
+    <div className="mb-16">
+      <div className="text-center mb-12">
+        <h3 className="text-2xl md:text-3xl font-black mb-4 text-white tracking-tight">
+          {title}
+        </h3>
+        <div className="w-16 h-1 bg-gradient-to-r from-[#5c1515] to-[#7f1d1d] mx-auto rounded-full"></div>
+      </div>
 
+      <div
+        className={`max-w-6xl mx-auto ${
+          members.length === 2
+            ? "flex justify-center gap-x-44 flex-wrap"
+            : members.length === 3
+            ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-8 place-items-center"
+            : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-14 gap-y-10 place-items-center"
+        }`}
+      >
+        {members.map((member, index) => (
+          <MemberCard key={index} member={member} index={index} />
+        ))}
+      </div>
+    </div>
+  );
 
   const specs = [
     { 
@@ -452,53 +468,48 @@ const App: React.FC = () => {
         </div>
         
         <div className="container mx-auto px-6 text-center relative z-10 flex items-center justify-center h-full">
-  <div className="max-w-5xl mx-auto">
-    <a href="/" className="inline-flex items-center text-gray-300 hover:text-[#5c1515] mb-8 transition-all duration-300 group">
-      <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
-      Back to Home
-    </a>
+          <div className="max-w-5xl mx-auto">
+            <a href="/" className="inline-flex items-center text-gray-300 hover:text-[#5c1515] mb-8 transition-all duration-300 group">
+              <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
+              Back to Home
+            </a>
 
-    <div className="mb-6 animate-fadeIn">
-      <span className="inline-block px-4 py-2 bg-[#5c1515] text-white font-semibold rounded-full text-xs tracking-widest uppercase shadow-md">
-        Electric Off-Road Racing
-      </span>
-    </div>
+            <div className="mb-6 animate-fadeIn">
+              <span className="inline-block px-4 py-2 bg-[#5c1515] text-white font-semibold rounded-full text-xs tracking-widest uppercase shadow-md">
+                Electric Off-Road Racing
+              </span>
+            </div>
 
-    <h1
-  className="text-white text-[8rem] md:text-[10rem] font-extrabold tracking-tight leading-none drop-shadow-[0_8px_20px_rgba(0,0,0,0.75)] animate-slideUp font-['Anton']"
->
-  EBaja
-</h1>
+            <h1 className="text-white text-[8rem] md:text-[10rem] font-extrabold tracking-tight leading-none drop-shadow-[0_8px_20px_rgba(0,0,0,0.75)] animate-slideUp font-['Anton']">
+              EBaja
+            </h1>
 
-<p
-  className="text-2xl md:text-3xl text-white mt-6 mb-12 font-medium tracking-wide animate-slideUp delay-200 drop-shadow-[0_3px_6px_rgba(0,0,0,0.6)]"
->
-  Our cutting-edge electric Baja built for sustainable, high-performance racing.
-</p>
+            <p className="text-2xl md:text-3xl text-white mt-6 mb-12 font-medium tracking-wide animate-slideUp delay-200 drop-shadow-[0_3px_6px_rgba(0,0,0,0.6)]">
+              Our cutting-edge electric Baja built for sustainable, high-performance racing.
+            </p>
 
-    <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slideUp delay-300">
-      <a 
-        href="#technical-specs" 
-        className="group px-8 py-3 bg-gradient-to-r from-[#5c1515] to-[#7f1d1d] hover:from-[#7f1d1d] hover:to-[#5c1515] text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-[#5c1515]/30"
-      >
-        <span className="flex items-center justify-center">
-          View Specifications
-          <Battery className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
-        </span>
-      </a>
-      <a 
-        href="#team" 
-        className="group px-8 py-3 bg-gradient-to-r from-[#5c1515] to-black hover:from-[#7f1d1d] hover:to-gray-900 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-[#5c1515]/30"
-      >
-        <span className="flex items-center justify-center">
-          Meet Our Team
-          <User className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
-        </span>
-      </a>
-    </div>
-  </div>
-</div>
-
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slideUp delay-300">
+              <a 
+                href="#technical-specs" 
+                className="group px-8 py-3 bg-gradient-to-r from-[#5c1515] to-[#7f1d1d] hover:from-[#7f1d1d] hover:to-[#5c1515] text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-[#5c1515]/30"
+              >
+                <span className="flex items-center justify-center">
+                  View Specifications
+                  <Battery className="ml-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+                </span>
+              </a>
+              <a 
+                href="#team" 
+                className="group px-8 py-3 bg-gradient-to-r from-[#5c1515] to-black hover:from-[#7f1d1d] hover:to-gray-900 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-[#5c1515]/30"
+              >
+                <span className="flex items-center justify-center">
+                  Meet Our Team
+                  <User className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/90 via-black/60 to-transparent pointer-events-none"></div>
       </div>
@@ -545,8 +556,7 @@ const App: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="group flex items-start p-4 rounded-xl bg-black/40 backdrop-blur-sm border border-gray-800/50 hover:border-[#5c1515]/30 transition-all duration-300">
                   <div className="mr-4 mt-1 p-2 bg-[#5c1515]/20 rounded-md group-hover:bg-[#5c1515]/30 transition-colors duration-300">
-                    <BarChart className="h-5 w-5 text-[#5c1515]"
-                    />
+                    <BarChart className="h-5 w-5 text-[#5c1515]" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1 text-white">Top Speed</h4>
@@ -612,26 +622,26 @@ const App: React.FC = () => {
             {!showAllMembers ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 justify-items-center">
                 {visibleLeadership.map((member, index) => (
-                  <MemberCard key={index} member={member} index={index} />
+                  <MemberCard key={index} member={member} index={index} isLeadership />
                 ))}
               </div>
             ) : (
               <>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 justify-items-center">
                   {leadershipTeam.slice(0, 4).map((member, index) => (
-                    <MemberCard key={index} member={member} index={index} />
+                    <MemberCard key={index} member={member} index={index} isLeadership />
                   ))}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 justify-items-center">
                   {leadershipTeam.slice(4, 8).map((member, index) => (
-                    <MemberCard key={index + 4} member={member} index={index + 4} />
+                    <MemberCard key={index + 4} member={member} index={index + 4} isLeadership />
                   ))}
                 </div>
 
                 <div className="flex justify-center space-x-8 sm:space-x-16 md:space-x-32 lg:space-x-44 gap-y-10 mb-16 flex-wrap">
                   {leadershipTeam.slice(8, 11).map((member, index) => (
-                    <MemberCard key={index + 8} member={member} index={index + 8} />
+                    <MemberCard key={index + 8} member={member} index={index + 8} isLeadership />
                   ))}
                 </div>
 
@@ -702,7 +712,7 @@ const App: React.FC = () => {
       </section>
       
       <section id="technical-specs" className="py-20 relative z-10">
-       <div className="container mx-auto px-6 relative z-10 text-white">
+        <div className="container mx-auto px-6 relative z-10 text-white">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-white tracking-tight">
               Technical Specifications
@@ -816,8 +826,6 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      
     </div>
   );
 };
