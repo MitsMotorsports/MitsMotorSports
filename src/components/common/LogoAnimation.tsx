@@ -18,10 +18,9 @@ const LogoAnimation = ({ onAnimationComplete }: LogoAnimationProps) => {
       };
     }
 
-    // Just in case onended event does not fire (fallback)
     const fallbackTimeout = setTimeout(() => {
       if (onAnimationComplete) onAnimationComplete();
-    }, 1500); // match video length + small buffer
+    }, 1500);
 
     return () => clearTimeout(fallbackTimeout);
   }, [onAnimationComplete]);
@@ -30,8 +29,8 @@ const LogoAnimation = ({ onAnimationComplete }: LogoAnimationProps) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
       <video
         ref={videoRef}
-        src="/public/ClubLogo.mp4" // adjust path if needed
-        className="w-64 md:w-96 object-contain"
+        src="/ClubLogo.mp4" // Fixed path - removed /public
+        className="w-48 h-48 object-contain" // Compact size for all screens
         muted
         autoPlay
         playsInline
