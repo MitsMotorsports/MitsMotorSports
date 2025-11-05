@@ -29,7 +29,7 @@ const LogoAnimation = ({ onAnimationComplete }: LogoAnimationProps) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
       <video
         ref={videoRef}
-        src="/ClubLogo.mp4" // Fixed path - removed /public
+        src="/public/ClubLogo.mp4" // Fixed path - removed /public
         className="w-48 h-48 object-contain" // Compact size for all screens
         muted
         autoPlay
