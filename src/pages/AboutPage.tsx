@@ -1,3 +1,5 @@
+
+
 import { Award, Users, Target, Wrench } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ClubLogo from '../assets/faviconLogo (1).jpg';
@@ -125,8 +127,42 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Website Developers Section */}
+      <section className="relative z-20 py-10 px-6 md:px-12 text-center">
+        <h3 className="text-3xl md:text-4xl font-extrabold mb-6 text-white">
+          Website Developers
+        </h3>
+        <div className="flex flex-wrap justify-center gap-6 text-lg md:text-2xl font-semibold text-[#7f1d1d]">
+          <a
+            href="https://www.linkedin.com/in/aksa-susan/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline hover:text-white transition-colors duration-300"
+          >
+            Aksa Susan Mathew
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sethulakshmi-s-3728aa2b7/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline hover:text-white transition-colors duration-300"
+          >
+            Sethulakshmi S
+          </a>
+          <a
+            href="https://www.linkedin.com/in/shona-mariyam-binu-4512b0255/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline hover:text-white transition-colors duration-300"
+          >
+            Shona Mariyam Binu
+          </a>
+        </div>
+      </section>
     </div>
   );
 };
 
 export default About;
+
