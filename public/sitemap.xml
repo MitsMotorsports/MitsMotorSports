@@ -4,9 +4,10 @@
   <url>
     <loc>https://www.mitsmotorsports.com/</loc>
     <priority>1.00</priority>
+    
   </url>
 
-  <url>
+  <!-- <url>
     <loc>https://www.mitsmotorsports.com/about</loc>
   </url>
 
@@ -32,6 +33,6 @@
 
   <url>
     <loc>https://www.mitsmotorsports.com/alumni</loc>
-  </url>
+  </url> -->
 
 </urlset>
