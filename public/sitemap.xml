@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home page -->
   <url>
     <loc>https://www.mitsmotorsportssite.me/</loc>
-    <priority>1.0</priority>
+    <priority>1.00</priority>
   </url>
 
-  <!-- Add other pages if you have separate routes -->
-  <!-- Example:
   <url>
     <loc>https://www.mitsmotorsportssite.me/about</loc>
   </url>
 
   <url>
+    <loc>https://www.mitsmotorsportssite.me/sponsors</loc>
+  </url>
+
+  <url>
+    <loc>https://www.mitsmotorsportssite.me/projects/aethon</loc>
+  </url>
+
+  <url>
+    <loc>https://www.mitsmotorsportssite.me/projects/ebaja</loc>
+  </url>
+
+  <url>
     <loc>https://www.mitsmotorsportssite.me/gallery</loc>
   </url>
-  -->
+
+  <url>
+    <loc>https://www.mitsmotorsportssite.me/legacy</loc>
+  </url>
+
+  <url>
+    <loc>https://www.mitsmotorsportssite.me/alumni</loc>
+  </url>
 
 </urlset>
