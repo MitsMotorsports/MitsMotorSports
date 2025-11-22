@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async'
 import { Flag, ChevronLeft, ChevronRight, Heart, Zap, Trophy, Target, Gauge } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GalleryBg from '../assets/fkdc3.6.jpg';
@@ -267,6 +268,11 @@ const ProjectGallery: React.FC = () => {
 
   return (
     <div className="bg-black text-white min-h-screen overflow-x-hidden relative font-['Poppins']">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Project Gallery | MITS Motorsports</title>
+      </Helmet>
+
       {/* Main content wrapper */}
       <div className="relative z-10 flex-grow flex flex-col">
         {/* Top section with background image */}
@@ -277,7 +283,7 @@ const ProjectGallery: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent z-15"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent z-15"></div>
           <div className="absolute inset-0 bg-black/50 z-10"></div>
           <div className="relative z-20 max-w-5xl mx-auto text-center">
             <motion.div
@@ -335,21 +341,19 @@ const ProjectGallery: React.FC = () => {
             >
               <button
                 onClick={() => setActiveSection('gokart')}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-base sm:text-lg transition-all duration-200 ${
-                  activeSection === 'gokart'
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-base sm:text-lg transition-all duration-200 ${activeSection === 'gokart'
                     ? 'bg-[#7f1d1d] text-white'
                     : 'bg-gray-600/60 text-white hover:bg-gray-800/80'
-                }`}
+                  }`}
               >
                 GKDC Season 12
               </button>
               <button
                 onClick={() => setActiveSection('fkdc')}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-base sm:text-lg transition-all duration-200 ${
-                  activeSection === 'fkdc'
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-base sm:text-lg transition-all duration-200 ${activeSection === 'fkdc'
                     ? 'bg-[#7f1d1d] text-white'
                     : 'bg-gray-600/60 text-white hover:bg-gray-800/80'
-                }`}
+                  }`}
               >
                 FKDC Season 7
               </button>
@@ -526,9 +530,8 @@ const ProjectGallery: React.FC = () => {
                               <motion.button
                                 key={idx}
                                 onClick={() => setCurrentSlide(idx)}
-                                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
-                                  idx === currentSlide ? 'bg-red-500 scale-110' : 'bg-gray-300/60'
-                                }`}
+                                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${idx === currentSlide ? 'bg-red-500 scale-110' : 'bg-gray-300/60'
+                                  }`}
                                 whileHover={{ scale: 1.2 }}
                                 whileTap={{ scale: 0.9 }}
                               />
@@ -598,9 +601,8 @@ const ProjectGallery: React.FC = () => {
                                   </motion.p>
 
                                   <motion.div
-                                    className={`relative transition-all duration-300 ${
-                                      activeProject === project.id ? 'opacity-100' : 'opacity-70'
-                                    }`}
+                                    className={`relative transition-all duration-300 ${activeProject === project.id ? 'opacity-100' : 'opacity-70'
+                                      }`}
                                   >
                                     <div className="w-full h-0.4 sm:h-0.5 bg-gradient-to-r from-red-400 to-transparent rounded-full" />
                                     <div className="w-3/4 h-0.4 sm:h-0.5 bg-gradient-to-r from-red-400 to-transparent mt-1 sm:mt-2 rounded-full" />

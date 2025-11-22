@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion';
 
 // Components
@@ -22,6 +23,15 @@ const AethonPage = () => {
       exit="exit"
       className="bg-black text-white min-h-screen overflow-x-hidden relative"
     >
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Aethon | MITS Motorsports</title>
+        <meta
+          name="description"
+          content="Aethon V4 by MITS Motorsports – engineering, design, team, and technical specifications."
+        />
+      </Helmet>
+
       {/* GLOBAL Geometric Background Pattern */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-10 left-10 w-80 h-80 border-2 border-[#7f1d1d]/50 rotate-45 rounded-3xl"></div>

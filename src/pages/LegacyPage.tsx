@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet-async'
 
 // Import your background image
 import backgroundImage from "../assets/pg1.jpg"; 
@@ -61,6 +62,14 @@ export default function EBajaPage() {
       backgroundAttachment: "fixed",
     }}
   >
+     <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Legacy | MITS Motorsports</title>
+        <meta
+          name="description"
+          content="Legacy highlights and competition history of MITS Motorsports. This page is not indexed by search engines."
+        />
+      </Helmet>
       {/* Overlay for darkening the background */}
       <div
         style={{

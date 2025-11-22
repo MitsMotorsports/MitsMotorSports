@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Z1 from '../assets/z1.jpg';
 import Z2 from '../assets/z2.jpg';
 import Z3 from '../assets/z3.jpg';
+import { Helmet } from 'react-helmet-async'
 
 
 const Sponsors: React.FC = () => {
@@ -19,6 +20,15 @@ const Sponsors: React.FC = () => {
 
   return (
     <div className="bg-black text-white min-h-screen relative overflow-hidden font-['Poppins']">
+      <Helmet>
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Sponsors | MITS Motorsports</title>
+  <meta 
+    name="description" 
+    content="Official sponsors of MITS Motorsports. This page is set to noindex and will not appear in search engines." 
+  />
+</Helmet>
+
       {/* RED GEOMETRIC BACKGROUND: exact same squares & shapes */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         {/* Replicate all of the shapes from your About page: */}

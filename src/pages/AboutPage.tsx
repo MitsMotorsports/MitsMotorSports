@@ -3,6 +3,8 @@
 import { Award, Users, Target, Wrench } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ClubLogo from '../assets/faviconLogo (1).jpg';
+import { Helmet } from 'react-helmet-async'
+
 
 const About = () => {
   const features = [
@@ -55,6 +57,14 @@ const About = () => {
 
   return (
     <div className="bg-black text-white min-h-screen overflow-x-hidden relative font-['Poppins']">
+       <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>About | MITS Motorsports</title>
+        <meta
+          name="description"
+          content="Learn more about MITS Motorsports, our mission, our team, and the engineering passion that drives us."
+        />
+      </Helmet>
       {/* Background Squares */}
       {/* ... (your full geometric pattern background remains here) ... */}
 
