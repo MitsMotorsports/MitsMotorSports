@@ -6,5 +6,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/',  // always root for easy deployment
+  assetsInclude: ['**/*.mp4', '**/*.png', '**/*.webm', '**/*.mov'],
+  base: '/',
 });

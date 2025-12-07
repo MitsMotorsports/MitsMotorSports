@@ -9,6 +9,10 @@
       "destination": "/robots.txt"
     },
     {
+      "source": "/:path*.(mp4|webm|ogg|mov)",
+      "destination": "/:path*"
+    },
+    {
       "source": "/assets/:path*",
       "destination": "/assets/:path*"
     },

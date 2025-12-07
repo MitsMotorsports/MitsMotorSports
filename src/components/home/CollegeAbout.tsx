@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import MitsLogo from '../../assets/MITS_Logo_updated-removebg-preview.jpg';
+import MitsLogo from '../../assets/mits new logo.jpg';
 import AboutBg from '../../assets/Mitsbg.jpg';
 
 const containerVariants = {
@@ -164,7 +164,7 @@ const CollegeAbout = () => {
           <img
             src={MitsLogo}
             alt="MITS Motorsports Logo"
-            className="w-72 h-auto object-contain rounded-xl shadow-2xl"
+            className="w-82 h-auto object-contain rounded-xl shadow-2xl"
           />
         </motion.div>
       </motion.section>
