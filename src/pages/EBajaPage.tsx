@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, Battery, Zap, Truck, Settings, ChevronDown, ChevronUp, Linkedin, Mail, User, Gauge, Power, Car, Clock, Award, Users, BarChart } from 'lucide-react';
-import ebaja from '../components/ebaja/image/ebajaa.jpg';
+import ebaja from '../components/ebaja/image/ebaja5.png';
+import ebajaVehicle from '../components/ebaja/image/ebaja4.jpeg';
+
 import gabrin from '../components/ebaja/image/Gabrin.jpg';
 import justinian from '../components/ebaja/image/Justinian.jpg';
 import abrem from '../components/ebaja/image/Abrem.jpg';
@@ -539,16 +541,15 @@ const App: React.FC = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="absolute inset-0 border-2 border-[#5c1515]/30 rounded-lg transform translate-x-4 translate-y-4"></div>
-              <div className="relative z-10 bg-black/90 backdrop-blur-sm rounded-lg shadow-2xl h-96 flex items-center justify-center border border-gray-800/50">
-                <div className="text-center">
-                  <div className="mb-4 p-4 bg-[#5c1515]/20 rounded-full w-fit mx-auto backdrop-blur-sm">
-                    <Truck className="h-12 w-12 text-[#5c1515]" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Coming Soon</h3>
-                  <p className="text-gray-400">EBaja Vehicle Image</p>
-                </div>
+            <div className="relative group">
+              <div className="absolute inset-0 border-2 border-[#5c1515]/30 rounded-lg transform translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-6 group-hover:translate-y-6"></div>
+              <div className="relative z-10 bg-black/90 backdrop-blur-sm rounded-lg shadow-2xl overflow-hidden border border-gray-800/50 transition-all duration-300 group-hover:border-[#5c1515]/50">
+                <img
+                  src={ebajaVehicle}
+                  alt="EBaja Vehicle"
+                  className="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
               </div>
             </div>
 
