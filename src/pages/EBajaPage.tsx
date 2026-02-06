@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async'
 import { ArrowLeft, Battery, Zap, Truck, Settings, ChevronDown, ChevronUp, Linkedin, Mail, User, Gauge, Power, Car, Clock, Award, Users, BarChart } from 'lucide-react';
-import ebaja from '../components/ebaja/image/ebaja5.png';
+import ebaja from '../components/ebaja/image/ebaja5.jpg';
 import ebajaVehicle from '../components/ebaja/image/ebaja4.jpeg';
 
 import gabrin from '../components/ebaja/image/Gabrin.jpg';

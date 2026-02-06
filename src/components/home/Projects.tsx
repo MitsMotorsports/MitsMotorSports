@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../common/SectionTitle';
 import ProjectCard from '../common/ProjectCard';
 import Aethon from '../../assets/Garage_upscaled.jpg';
+import EBaja from '../../assets/ebaja5.jpg';
 //import ProjectBg from '../../assets/fkdc2.jpg';
 
 
@@ -18,7 +19,7 @@ const Projects = () => {
       title: 'EBaja',
       description:
         'Ebaja ATV is engineered for the SAE Ebaja Challenge, featuring a 9 kW tractive system, advanced torque vectoring, lightweight design, and up to 4 hours of battery life for exceptional performance and durability on all terrains',
-      // No image for EBaja
+      image: EBaja,
       link: '/projects/ebaja',
     },
   ];
