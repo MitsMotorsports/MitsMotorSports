@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async';
 import { Flag, ChevronLeft, ChevronRight, Heart, Zap, Trophy, Target, Gauge } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import GalleryBg from '../assets/fkdc3.6.jpg';
@@ -21,6 +21,10 @@ import fkdcImg6 from '../assets/fkdc pic6.jpg';
 import fkdcImg7 from '../assets/fkdc pic7.jpg';
 import fkdcImg8 from '../assets/fkdc pic8.jpg';
 import fkdcImg10 from '../assets/fkdc pic10.jpg';
+import ebajaImg1 from '../assets/EBaja1.jpg';
+import ebajaImg2 from '../assets/ebaja1.jpeg';
+import ebajaImg3 from '../assets/ebaja4.jpeg';
+import ebajaImg4 from '../assets/ebaja2.jpeg';
 
 const ProjectGallery: React.FC = () => {
   const [activeProject, setActiveProject] = useState<number | null>(null);
@@ -40,6 +44,13 @@ const ProjectGallery: React.FC = () => {
     { id: 2, src: fkdcImg6, alt: 'FKDC Season 7 Work 6' },
     { id: 3, src: fkdcImg7, alt: 'FKDC Season 7 Work 7' },
     { id: 4, src: fkdcImg8, alt: 'FKDC Season 7 Work 8' },
+  ];
+
+  const bajaSliderImages = [
+    { id: 1, src: ebajaImg1, alt: 'SAE BAJA 2026 Work 1' },
+    { id: 2, src: ebajaImg2, alt: 'SAE BAJA 2026 Work 2' },
+    { id: 3, src: ebajaImg3, alt: 'SAE BAJA 2026 Work 3' },
+    { id: 4, src: ebajaImg4, alt: 'SAE BAJA 2026 Work 4' },
   ];
 
   const goKartProjects = [
@@ -160,6 +171,91 @@ const ProjectGallery: React.FC = () => {
     }
   ];
 
+  const bajaProjects = [
+    {
+      id: 1,
+      title: "SAE BAJA 2026 Project",
+      image: ebajaImg1,
+      featured: true,
+      fontColor: "text-white",
+      margin: "mx-2 my-6",
+      verticalPosition: "top-8",
+      icon: Trophy,
+      description: "Off-Road Excellence",
+      descriptionFontColor: "text-white",
+    },
+    {
+      id: 2,
+      title: "Team at Work",
+      image: ebajaImg2,
+      fontColor: "text-white",
+      margin: "mx-2 my-6",
+      verticalPosition: "top-2.5",
+      icon: Target,
+      description: "Built for the Toughest Challenges",
+      descriptionFontColor: "text-white",
+    },
+    {
+      id: 3,
+      title: "BAJA Engineering",
+      image: ebajaImg3,
+      fontColor: "text-white",
+      margin: "mx-2 my-6",
+      verticalPosition: "top-6",
+      icon: Flag,
+      description: "Competition-Ready Vehicle",
+      descriptionFontColor: "text-white",
+    },
+    {
+      id: 4,
+      title: "The Crew",
+      image: ebajaImg4,
+      fontColor: "text-white",
+      margin: "mx-2 my-6",
+      verticalPosition: "bottom-6",
+      icon: Gauge,
+      description: "Strength Behind the Build",
+      descriptionFontColor: "text-white",
+    },
+    {
+      id: 5,
+      title: "MITS BAJA Excellence",
+      image: ebajaImg1,
+      fontColor: "text-white",
+      margin: "mx-2 my-6",
+      verticalPosition: "bottom-6",
+      icon: Zap,
+      description: "Innovation in Motion",
+      descriptionFontColor: "text-white",
+    }
+  ];
+
+  const getCurrentSliderImages = () => {
+    switch (activeSection) {
+      case 'gokart':
+        return goKartSliderImages;
+      case 'fkdc':
+        return fkdcSliderImages;
+      case 'baja':
+        return bajaSliderImages;
+      default:
+        return goKartSliderImages;
+    }
+  };
+
+  const getCurrentProjects = () => {
+    switch (activeSection) {
+      case 'gokart':
+        return goKartProjects;
+      case 'fkdc':
+        return fkdcProjects;
+      case 'baja':
+        return bajaProjects;
+      default:
+        return goKartProjects;
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -250,20 +346,36 @@ const ProjectGallery: React.FC = () => {
     return fontColor === 'text-white' ? 'bg-white' : 'bg-gray-500';
   };
 
+  const getSectionTitle = () => {
+    switch (activeSection) {
+      case 'gokart':
+        return "Behind Every Bolt";
+      case 'fkdc':
+        return "FKDC Season 7";
+      case 'baja':
+        return "SAE BAJA 2026";
+      default:
+        return "Behind Every Bolt";
+    }
+  };
+
   useEffect(() => {
     if (isPaused) return;
+    const currentSliderImages = getCurrentSliderImages();
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % (activeSection === 'gokart' ? goKartSliderImages.length : fkdcSliderImages.length));
+      setCurrentSlide((prev) => (prev + 1) % currentSliderImages.length);
     }, 4000);
     return () => clearInterval(interval);
   }, [isPaused, activeSection]);
 
   const handlePrevSlide = (): void => {
-    setCurrentSlide((prev) => (prev === 0 ? (activeSection === 'gokart' ? goKartSliderImages.length : fkdcSliderImages.length) - 1 : prev - 1));
+    const currentSliderImages = getCurrentSliderImages();
+    setCurrentSlide((prev) => (prev === 0 ? currentSliderImages.length - 1 : prev - 1));
   };
 
   const handleNextSlide = (): void => {
-    setCurrentSlide((prev) => (prev + 1) % (activeSection === 'gokart' ? goKartSliderImages.length : fkdcSliderImages.length));
+    const currentSliderImages = getCurrentSliderImages();
+    setCurrentSlide((prev) => (prev + 1) % currentSliderImages.length);
   };
 
   return (
@@ -273,9 +385,7 @@ const ProjectGallery: React.FC = () => {
         <title>Project Gallery | MITS Motorsports</title>
       </Helmet>
 
-      {/* Main content wrapper */}
       <div className="relative z-10 flex-grow flex flex-col">
-        {/* Top section with background image */}
         <motion.div
           className="min-h-screen px-2 sm:px-4 md:px-6 lg:px-8 py-28 sm:py-32 md:py-36 lg:py-44 flex flex-col justify-center bg-cover bg-center bg-no-repeat relative z-30"
           style={{ backgroundImage: `url(${GalleryBg})` }}
@@ -332,38 +442,56 @@ const ProjectGallery: React.FC = () => {
               <motion.span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7f1d1d] to-black mx-2">MOTION</motion.span>
             </motion.h1>
 
-            {/* Section Buttons */}
             <motion.div
-              className="flex justify-center gap-4 mt-12 sm:mt-14"
+              className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-12 sm:mt-14 px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.5, duration: 0.6 }}
             >
               <button
-                onClick={() => setActiveSection('gokart')}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-base sm:text-lg transition-all duration-200 ${activeSection === 'gokart'
+                onClick={() => {
+                  setActiveSection('gokart');
+                  setCurrentSlide(0);
+                }}
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base lg:text-lg transition-all duration-200 ${
+                  activeSection === 'gokart'
                     ? 'bg-[#7f1d1d] text-white'
                     : 'bg-gray-600/60 text-white hover:bg-gray-800/80'
-                  }`}
+                }`}
               >
                 GKDC Season 12
               </button>
               <button
-                onClick={() => setActiveSection('fkdc')}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-base sm:text-lg transition-all duration-200 ${activeSection === 'fkdc'
+                onClick={() => {
+                  setActiveSection('fkdc');
+                  setCurrentSlide(0);
+                }}
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base lg:text-lg transition-all duration-200 ${
+                  activeSection === 'fkdc'
                     ? 'bg-[#7f1d1d] text-white'
                     : 'bg-gray-600/60 text-white hover:bg-gray-800/80'
-                  }`}
+                }`}
               >
                 FKDC Season 7
+              </button>
+              <button
+                onClick={() => {
+                  setActiveSection('baja');
+                  setCurrentSlide(0);
+                }}
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base lg:text-lg transition-all duration-200 ${
+                  activeSection === 'baja'
+                    ? 'bg-[#7f1d1d] text-white'
+                    : 'bg-gray-600/60 text-white hover:bg-gray-800/80'
+                }`}
+              >
+                SAE BAJA 2026
               </button>
             </motion.div>
           </div>
         </motion.div>
 
-        {/* Project cards section with geometric pattern */}
         <div className="px-2 sm:px-4 md:px-6 lg:px-8 pb-12 sm:pb-16 md:pb-20 lg:pb-24 relative z-10">
-          {/* Geometric Pattern Background */}
           <div className="absolute inset-0 z-[0] pointer-events-none opacity-100">
             <div className="absolute top-10 left-10 w-80 h-80 border-2 border-[#7f1d1d]/50 rotate-45 rounded-3xl"></div>
             <div className="absolute top-20 right-20 w-96 h-96 border-2 border-[#7f1d1d]/45 rotate-12 rounded-2xl"></div>
@@ -410,15 +538,15 @@ const ProjectGallery: React.FC = () => {
           </div>
 
           <div className="max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-5xl mx-auto">
-            <AnimatePresence initial={false}>
+            <AnimatePresence mode="wait">
               <motion.div
                 key={activeSection}
-                initial={{ opacity: activeSection === 'gokart' ? 1 : 0, y: activeSection === 'gokart' ? 0 : 20 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
               >
-                {(activeSection === 'gokart' ? goKartProjects : fkdcProjects).map((project, index) => (
+                {getCurrentProjects().map((project, index) => (
                   <React.Fragment key={project.id}>
                     {project.id === 5 && (
                       <motion.div
@@ -435,10 +563,10 @@ const ProjectGallery: React.FC = () => {
                         <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden border-2 border-red-900/20">
                           <div className="relative w-full h-full flex items-center justify-center">
                             <AnimatePresence initial={false}>
-                              {(activeSection === 'gokart' ? goKartSliderImages : fkdcSliderImages).map((image, idx) => {
+                              {getCurrentSliderImages().map((image, idx) => {
                                 const isCenter = idx === currentSlide;
-                                const isLeft = idx === (currentSlide - 1 + (activeSection === 'gokart' ? goKartSliderImages : fkdcSliderImages).length) % (activeSection === 'gokart' ? goKartSliderImages : fkdcSliderImages).length;
-                                const isRight = idx === (currentSlide + 1) % (activeSection === 'gokart' ? goKartSliderImages : fkdcSliderImages).length;
+                                const isLeft = idx === (currentSlide - 1 + getCurrentSliderImages().length) % getCurrentSliderImages().length;
+                                const isRight = idx === (currentSlide + 1) % getCurrentSliderImages().length;
                                 return (
                                   <motion.img
                                     key={`${image.id}-${idx}`}
@@ -486,7 +614,7 @@ const ProjectGallery: React.FC = () => {
                                     whileInView="visible"
                                     viewport={{ once: false }}
                                   >
-                                    {Array.from(activeSection === 'gokart' ? "Behind Every Bolt" : "FKDC Season 7").map((char, idx) => (
+                                    {Array.from(getSectionTitle()).map((char, idx) => (
                                       <motion.span
                                         key={`${char}-${idx}`}
                                         variants={letterVariants}
@@ -526,12 +654,13 @@ const ProjectGallery: React.FC = () => {
                           </motion.button>
 
                           <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
-                            {(activeSection === 'gokart' ? goKartSliderImages : fkdcSliderImages).map((_, idx) => (
+                            {getCurrentSliderImages().map((_, idx) => (
                               <motion.button
                                 key={idx}
                                 onClick={() => setCurrentSlide(idx)}
-                                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${idx === currentSlide ? 'bg-red-500 scale-110' : 'bg-gray-300/60'
-                                  }`}
+                                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
+                                  idx === currentSlide ? 'bg-red-500 scale-110' : 'bg-gray-300/60'
+                                }`}
                                 whileHover={{ scale: 1.2 }}
                                 whileTap={{ scale: 0.9 }}
                               />
@@ -601,8 +730,9 @@ const ProjectGallery: React.FC = () => {
                                   </motion.p>
 
                                   <motion.div
-                                    className={`relative transition-all duration-300 ${activeProject === project.id ? 'opacity-100' : 'opacity-70'
-                                      }`}
+                                    className={`relative transition-all duration-300 ${
+                                      activeProject === project.id ? 'opacity-100' : 'opacity-70'
+                                    }`}
                                   >
                                     <div className="w-full h-0.4 sm:h-0.5 bg-gradient-to-r from-red-400 to-transparent rounded-full" />
                                     <div className="w-3/4 h-0.4 sm:h-0.5 bg-gradient-to-r from-red-400 to-transparent mt-1 sm:mt-2 rounded-full" />
@@ -640,7 +770,6 @@ const ProjectGallery: React.FC = () => {
           </div>
         </div>
 
-        {/* Footer section */}
         <motion.div
           className="border-t border-gray-800/30 bg-black relative z-10"
           initial={{ opacity: 0, y: 30 }}

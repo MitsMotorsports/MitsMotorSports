@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Z1 from '../assets/z1.jpg';
 import Z2 from '../assets/z2.jpg';
 import Z3 from '../assets/z3.jpg';
+import Z4 from '../assets/z4.jpg';
 import { Helmet } from 'react-helmet-async'
 
 
@@ -106,7 +107,7 @@ const Sponsors: React.FC = () => {
   </div>
 
  {/* Additional sponsors below Muthoot */}
-<div className="w-full flex flex-col items-center mt-12 pb-20">
+<div className="w-full flex flex-col items-center mt-12 pb-20 gap-10">
   <img
     src={Z1}
     alt="Sponsor Z1"
@@ -120,6 +121,11 @@ const Sponsors: React.FC = () => {
   <img
     src={Z3}
     alt="Sponsor Z3"
+    className="w-40 md:w-60 lg:w-64 object-contain"
+  />
+  <img
+    src={Z4}
+    alt="Sponsor Z4"
     className="w-40 md:w-60 lg:w-64 object-contain"
   />
 </div>
